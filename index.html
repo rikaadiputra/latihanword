@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belajar Microsoft Word - Kelas 7</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#f4f7fb;
+    color:#202124;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:#185abd;
+    color:white;
+    padding:22px 30px;
+    text-align:center;
+}
+
+.header h1{
+    margin:0;
+    font-size:28px;
+}
+
+.header p{
+    margin:7px 0 0;
+    opacity:.9;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    max-width:1050px;
+    margin:25px auto;
+    padding:0 18px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-wrap{
+    background:white;
+    border-radius:14px;
+    padding:16px 20px;
+    box-shadow:0 2px 10px #00000012;
+    margin-bottom:20px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.progress{
+    height:9px;
+    background:#e5e7eb;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:#185abd;
+    width:10%;
+    transition:.3s;
+}
+
+/* ================= LAYOUT ================= */
+
+.layout{
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:20px;
+}
+
+/* ================= SIDEBAR ================= */
+
+.steps{
+    background:white;
+    border-radius:14px;
+    padding:12px;
+    box-shadow:0 2px 10px #00000012;
+    height:max-content;
+}
+
+.step{
+    padding:11px 12px;
+    border-radius:9px;
+    margin:4px 0;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.step:hover{
+    background:#eef4ff;
+}
+
+.step.active{
+    background:#e8f0fe;
+    color:#185abd;
+    font-weight:700;
+}
+
+.step.done{
+    color:#16803c;
+}
+
+.step-number{
+    display:inline-flex;
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background:#e8eaed;
+    align-items:center;
+    justify-content:center;
+    margin-right:7px;
+    font-weight:700;
+}
+
+.step.active .step-number{
+    background:#185abd;
+    color:white;
+}
+
+.step.done .step-number{
+    background:#d9f5e2;
+    color:#16803c;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    background:white;
+    border-radius:14px;
+    padding:24px;
+    box-shadow:0 2px 10px #00000012;
+}
+
+.badge{
+    display:inline-block;
+    background:#e8f0fe;
+    color:#185abd;
+    font-weight:700;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+h2{
+    margin:12px 0 5px;
+    font-size:25px;
+}
+
+.desc{
+    color:#5f6368;
+    margin:0 0 18px;
+}
+
+/* ================= VIDEO ================= */
+
+.video{
+    width:100%;
+    aspect-ratio:16/9;
+    background:#202124;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    overflow:hidden;
+    position:relative;
+}
+
+.video video{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.video-placeholder{
+    text-align:center;
+    padding:20px;
+}
+
+.play{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#185abd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    margin:0 auto 12px;
+}
+
+/* ================= INSTRUCTION ================= */
+
+.instructions{
+    margin-top:18px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:10px;
+    padding:16px;
+}
+
+.instructions h3{
+    margin:0 0 10px;
+    font-size:16px;
+}
+
+.instructions ol{
+    margin:0;
+    padding-left:23px;
+    line-height:1.8;
+}
+
+.tip{
+    margin-top:13px;
+    padding:11px 13px;
+    background:#fff8db;
+    border-left:4px solid #f2c94c;
+    border-radius:5px;
+    font-size:13px;
+}
+
+/* ================= BUTTON ================= */
+
+.controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+    gap:10px;
+}
+
+button{
+    border:0;
+    border-radius:8px;
+    padding:10px 17px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.prev{
+    background:#eef0f2;
+    color:#333;
+}
+
+.next{
+    background:#185abd;
+    color:white;
+}
+
+.check{
+    background:#e7f6ec;
+    color:#16803c;
+}
+
+.check.checked{
+    background:#16803c;
+    color:white;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    text-align:center;
+    color:#777;
+    font-size:12px;
+    padding:25px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:750px){
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .steps{
+        display:flex;
+        overflow-x:auto;
+    }
+
+    .step{
+        min-width:170px;
+    }
+
+    .content{
+        padding:17px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <h1>📘 Belajar Microsoft Word</h1>
+
+    <p>
+        Media Tutorial Interaktif • Kelas 7 SMPN 2 Singaraja
+    </p>
+
+</header>
+
+
+<div class="container">
+
+    <!-- ================= PROGRESS ================= -->
+
+    <div class="progress-wrap">
+
+        <div class="progress-top">
+
+            <span id="progressText">
+                Step 1 dari 10
+            </span>
+
+            <span id="percent">
+                10%
+            </span>
+
+        </div>
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                id="bar">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= LAYOUT ================= -->
+
+    <div class="layout">
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside
+            class="steps"
+            id="stepList">
+        </aside>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <main class="content">
+
+
+            <span
+                class="badge"
+                id="badge">
+                STEP 1
+            </span>
+
+
+            <h2 id="title">
+                Cara Menebalkan Huruf
+            </h2>
+
+
+            <p
+                class="desc"
+                id="desc">
+                Belajar menggunakan fitur Bold untuk membuat tulisan menjadi tebal.
+            </p>
+
+
+            <!-- ================= VIDEO ================= -->
+
+            <div class="video">
+
+                <div
+                    class="video-placeholder"
+                    id="videoPlaceholder">
+
+                    <div class="play">
+                        ▶
+                    </div>
+
+                    <b>
+                        Video Tutorial
+                    </b>
+
+                    <p>
+                        Video tutorial akan muncul di sini.
+                    </p>
+
+                </div>
+
+
+                <video
+                    id="tutorialVideo"
+                    controls
+                    loop
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        id="videoSource"
+                        src=""
+                        type="video/mp4">
+
+                    Browser kamu tidak mendukung video.
+
+                </video>
+
+            </div>
+
+
+            <!-- ================= INSTRUCTIONS ================= -->
+
+            <div class="instructions">
+
+                <h3>
+                    📝 Yang perlu kamu lakukan
+                </h3>
+
+
+                <ol
+                    id="instructionList">
+                </ol>
+
+
+                <div
+                    class="tip"
+                    id="tip">
+                </div>
+
+            </div>
+
+
+            <!-- ================= CONTROLS ================= -->
+
+            <div class="controls">
+
+                <button
+                    class="prev"
+                    onclick="prevStep()">
+
+                    ← Sebelumnya
+
+                </button>
+
+
+                <button
+                    class="check"
+                    id="checkBtn"
+                    onclick="markDone()">
+
+                    ☐ Saya sudah bisa
+
+                </button>
+
+
+                <button
+                    class="next"
+                    onclick="nextStep()">
+
+                    Berikutnya →
+
+                </button>
+
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<div class="footer">
+
+    Belajar pelan-pelan. Tidak perlu takut salah 😊
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   VIDEO
+   =========================================================
+
+   Masukkan video ke folder:
+
+   videos/
+
+   Kemudian beri nama:
+
+   step1.mp4
+   step2.mp4
+   step3.mp4
+   step4.mp4
+   step5.mp4
+   step6.mp4
+   step7.mp4
+   step8.mp4
+   step9.mp4
+   step10.mp4
+
+========================================================= */
+
+const videos = [
+
+    "videos/step1.mp4",
+
+    "videos/step2.mp4",
+
+    "videos/step3.mp4",
+
+    "videos/step4.mp4",
+
+    "videos/step5.mp4",
+
+    "videos/step6.mp4",
+
+    "videos/step7.mp4",
+
+    "videos/step8.mp4",
+
+    "videos/step9.mp4",
+
+    "videos/step10.mp4"
+
+];
+
+
+/* =========================================================
+   MATERI
+========================================================= */
+
+const lessons = [
+
+    /* STEP 1 */
+
+    {
+
+        title:"Cara Menebalkan Huruf",
+
+        desc:
+        "Belajar menggunakan fitur Bold untuk membuat tulisan menjadi tebal.",
+
+        steps:[
+
+            "Ketik tulisan yang ingin kamu ubah.",
+
+            "Blok atau pilih tulisan tersebut.",
+
+            "Cari tombol B pada bagian Font.",
+
+            "Klik tombol B.",
+
+            "Tulisan akan menjadi lebih tebal."
+
+        ],
+
+        tip:
+        "💡 Ingat: B = Bold = Tebal."
+
+    },
+
+
+    /* STEP 2 */
+
+    {
+
+        title:"Cara Membesarkan Huruf",
+
+        desc:
+        "Belajar mengubah ukuran tulisan agar menjadi lebih besar.",
+
+        steps:[
+
+            "Blok tulisan yang ingin diperbesar.",
+
+            "Cari kotak ukuran font.",
+
+            "Klik ukuran font tersebut.",
+
+            "Pilih angka yang lebih besar, misalnya 16 atau 18.",
+
+            "Perhatikan ukuran tulisan berubah."
+
+        ],
+
+        tip:
+        "💡 Semakin besar angka font, semakin besar ukuran tulisan."
+
+    },
+
+
+    /* STEP 3 */
+
+    {
+
+        title:"Cara Mengubah Warna Teks",
+
+        desc:
+        "Belajar memberikan warna pada tulisan.",
+
+        steps:[
+
+            "Blok tulisan yang ingin diberi warna.",
+
+            "Cari ikon A dengan garis warna di bawahnya.",
+
+            "Klik tanda panah warna.",
+
+            "Pilih warna yang kamu inginkan.",
+
+            "Tulisan akan berubah sesuai warna pilihan."
+
+        ],
+
+        tip:
+        "💡 Coba gunakan beberapa warna dan lihat perbedaannya."
+
+    },
+
+
+    /* STEP 4 */
+
+    {
+
+        title:"Cara Menengahkan Teks",
+
+        desc:
+        "Belajar membuat tulisan berada di tengah halaman.",
+
+        steps:[
+
+            "Blok tulisan atau letakkan kursor pada paragraf.",
+
+            "Cari bagian Paragraph atau Paragraf.",
+
+            "Cari tombol Align Center atau Rata Tengah.",
+
+            "Klik tombol tersebut.",
+
+            "Tulisan akan berpindah ke tengah."
+
+        ],
+
+        tip:
+        "💡 Tombol rata tengah berada bersama tombol rata kiri dan rata kanan."
+
+    },
+
+
+    /* STEP 5 */
+
+    {
+
+        title:"Cara Membuat Tabel",
+
+        desc:
+        "Belajar membuat tabel melalui menu Insert atau Sisipkan.",
+
+        steps:[
+
+            "Klik tab Insert atau Sisipkan.",
+
+            "Klik Table atau Tabel.",
+
+            "Arahkan mouse pada kotak-kotak tabel.",
+
+            "Pilih jumlah kolom dan baris.",
+
+            "Klik untuk memasukkan tabel ke dokumen."
+
+        ],
+
+        tip:
+        "💡 Contoh: pilih 3 kolom × 3 baris untuk membuat tabel sederhana."
+
+    },
+
+
+    /* STEP 6 */
+
+    {
+
+        title:"Cara Mewarnai Kolom atau Sel Tabel",
+
+        desc:
+        "Belajar memberikan warna pada bagian tabel.",
+
+        steps:[
+
+            "Klik tabel yang sudah dibuat.",
+
+            "Blok kolom atau sel yang ingin diberi warna.",
+
+            "Cari fitur Shading atau warna isian tabel.",
+
+            "Klik pilihan warna.",
+
+            "Bagian tabel akan berubah sesuai warna pilihan."
+
+        ],
+
+        tip:
+        "💡 Kamu bisa memberi warna pada baris judul agar tabel lebih mudah dibaca."
+
+    },
+
+
+    /* STEP 7 */
+
+    {
+
+        title:"Cara Menengahkan Tulisan di Dalam Tabel",
+
+        desc:
+        "Belajar mengatur posisi tulisan atau huruf agar berada di tengah sel tabel.",
+
+        steps:[
+
+            "Blok tulisan atau sel tabel yang ingin diatur.",
+
+            "Cari bagian Alignment atau Perataan.",
+
+            "Pilih posisi tengah.",
+
+            "Tulisan akan berpindah ke tengah sel.",
+
+            "Coba lakukan pada beberapa sel tabel."
+
+        ],
+
+        tip:
+        "💡 Tulisan judul tabel biasanya lebih rapi jika berada di tengah."
+
+    },
+
+
+    /* STEP 8 */
+
+    {
+
+        title:"Cara Memasukkan Gambar",
+
+        desc:
+        "Belajar memasukkan gambar ke dalam dokumen Word.",
+
+        steps:[
+
+            "Klik tab Insert atau Sisipkan.",
+
+            "Klik Pictures atau Gambar.",
+
+            "Pilih sumber gambar.",
+
+            "Cari gambar yang ingin digunakan.",
+
+            "Klik Insert atau Masukkan.",
+
+            "Gambar akan muncul di halaman."
+
+        ],
+
+        tip:
+        "💡 Setelah gambar masuk, klik gambar untuk melihat menu pengaturannya."
+
+    },
+
+
+    /* STEP 9 */
+
+    {
+
+        title:"Cara Membuat Gambar Bisa Digeser",
+
+        desc:
+        "Belajar mengatur posisi gambar agar dapat dipindahkan di dalam dokumen.",
+
+        steps:[
+
+            "Klik gambar yang sudah dimasukkan.",
+
+            "Cari fitur Wrap Text atau Pembungkusan Teks.",
+
+            "Pilih Square, Tight, atau Behind Text.",
+
+            "Klik dan tahan gambar.",
+
+            "Geser gambar ke posisi yang kamu inginkan."
+
+        ],
+
+        tip:
+        "💡 Jika gambar sulit digeser, periksa kembali pengaturan Wrap Text."
+
+    },
+
+
+    /* STEP 10 */
+
+    {
+
+        title:"Cara Menyimpan Dokumen",
+
+        desc:
+        "Belajar menyimpan pekerjaan agar tidak hilang.",
+
+        steps:[
+
+            "Klik File.",
+
+            "Pilih Save atau Save As.",
+
+            "Pilih lokasi penyimpanan.",
+
+            "Beri nama file.",
+
+            "Klik Save atau Simpan.",
+
+            "Pastikan dokumen sudah tersimpan."
+
+        ],
+
+        tip:
+        "💡 Biasakan menyimpan pekerjaan secara berkala agar hasil kerja tidak hilang."
+
+    }
+
+];
+
+
+/* =========================================================
+   VARIABLE
+========================================================= */
+
+let current = 0;
+
+let completed =
+    Array(lessons.length).fill(false);
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+function renderSteps(){
+
+    const box =
+        document.getElementById("stepList");
+
+    box.innerHTML = "";
+
+
+    lessons.forEach((lesson,index)=>{
+
+        const item =
+            document.createElement("div");
+
+
+        item.className =
+            "step " +
+
+            (index === current
+                ? "active "
+                : "") +
+
+            (completed[index]
+                ? "done"
+                : "");
+
+
+        item.innerHTML = `
+
+            <span class="step-number">
+
+                ${
+                    completed[index]
+                    ? "✓"
+                    : index + 1
+                }
+
+            </span>
+
+            ${lesson.title}
+
+        `;
+
+
+        item.onclick = ()=>{
+
+            current = index;
+
+            render();
+
+        };
+
+
+        box.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   LOAD VIDEO
+========================================================= */
+
+function loadVideo(){
+
+    const video =
+        document.getElementById(
+            "tutorialVideo"
+        );
+
+    const source =
+        document.getElementById(
+            "videoSource"
+        );
+
+
+    source.src =
+        videos[current];
+
+
+    video.loop = true;
+
+
+    video.load();
+
+
+    video.style.display =
+        "block";
+
+
+    document.getElementById(
+        "videoPlaceholder"
+    ).style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   RENDER CONTENT
+========================================================= */
+
+function render(){
+
+    const lesson =
+        lessons[current];
+
+
+    document.getElementById(
+        "badge"
+    ).textContent =
+        `STEP ${current + 1}`;
+
+
+    document.getElementById(
+        "title"
+    ).textContent =
+        lesson.title;
+
+
+    document.getElementById(
+        "desc"
+    ).textContent =
+        lesson.desc;
+
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        `Step ${current + 1} dari ${lessons.length}`;
+
+
+    const percent =
+        Math.round(
+            ((current + 1) /
+            lessons.length) * 100
+        );
+
+
+    document.getElementById(
+        "percent"
+    ).textContent =
+        percent + "%";
+
+
+    document.getElementById(
+        "bar"
+    ).style.width =
+        percent + "%";
+
+
+    document.getElementById(
+        "instructionList"
+    ).innerHTML =
+
+        lesson.steps
+
+        .map(
+            step =>
+            `<li>${step}</li>`
+        )
+
+        .join("");
+
+
+    document.getElementById(
+        "tip"
+    ).textContent =
+        lesson.tip;
+
+
+    const check =
+        document.getElementById(
+            "checkBtn"
+        );
+
+
+    if(completed[current]){
+
+        check.className =
+            "check checked";
+
+        check.textContent =
+            "✓ Sudah bisa";
+
+    }else{
+
+        check.className =
+            "check";
+
+        check.textContent =
+            "☐ Saya sudah bisa";
+
+    }
+
+
+    renderSteps();
+
+    loadVideo();
+
+}
+
+
+/* =========================================================
+   CHECKLIST
+========================================================= */
+
+function markDone(){
+
+    completed[current] =
+        !completed[current];
+
+
+    render();
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextStep(){
+
+    if(current <
+        lessons.length - 1){
+
+        current++;
+
+        render();
+
+    }
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function prevStep(){
+
+    if(current > 0){
+
+        current--;
+
+        render();
+
+    }
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+render();
+
+</script>
+
+</body>
+</html>
